@@ -1,5 +1,3 @@
-var url     = require("url");
-var http    = require("http");
 var dgram   = require("dgram");
 var util    = require("util");
 var events  = require("events");
