@@ -37,7 +37,7 @@ function mSearchResponseParser(msg, rinfo) {
       return _.chain(headers)
         .map(toKeyPair)
         .compact()
-        .reduce(_.extend)
+        .reduce(_.extend, {})
         .pick(UPNP_FIELDS)
         .value();
     }
@@ -50,7 +50,7 @@ function notifyResponseParser(msg, rinfo) {
       return _.chain(headers)
         .map(toKeyPair)
         .compact()
-        .reduce(_.extend)
+        .reduce(_.extend, {})
         .pick(UPNP_FIELDS)
         .value();
     }
