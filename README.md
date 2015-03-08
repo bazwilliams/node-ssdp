@@ -4,6 +4,10 @@ Simple Service Discovery for Node 0.12, handling Upnp NOTIFY and M-SEARCH reques
 
 This is pretty much a rewrite of a library I forked from https://github.com/TooTallNate/node-upnp-client/ the fork of which stopped working when I upgraded to Node 12. I decided to pair the library right down to the parts I was using, i.e. SSDP and rewrite those portions. 
 
+## Installation
+
+`npm install node-upnp-ssdp`
+
 ## Examples
 
 In the examples folder there are some example applications one of which shows a simple service discovery with a preset mSearch for Linn Devices; the other shows simple service discover if the parameter is left unset, the search request is is for all devices (`ssdp:all`). 
