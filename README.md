@@ -2,7 +2,7 @@
 
 Simple Service Discovery for Node 0.12, handling Upnp NOTIFY and M-SEARCH requests. 
 
-This is pretty much a rewrite of a library I forked from https://github.com/TooTallNate/node-upnp-client/ the fork of which stopped working when I upgraded to Node 12. I decided to pair the library right down to the parts I was using, i.e. SSDP and rewrite those portions. 
+This is pretty much a rewrite of a library I forked from https://github.com/TooTallNate/node-upnp-client/ the fork of which stopped working when I upgraded to Node 12. I decided to pare the library right down to the parts I was using, i.e. SSDP and rewrite those portions. 
 
 ## Installation
 
