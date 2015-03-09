@@ -10,7 +10,7 @@ This is pretty much a rewrite of a library I forked from https://github.com/TooT
 
 ## Examples
 
-In the examples folder there are some example applications one of which shows a simple service discovery with a preset mSearch for Linn Devices; the other shows simple service discover if the parameter is left unset, the search request is is for all devices (`ssdp:all`). 
+In the examples folder there are some example applications one of which shows a simple service discovery with a preset mSearch for Linn Devices; the other shows simple service discover if the parameter is left unset, the search request is for all devices `ssdp:all`. 
 
 If a device is found a `DeviceFound` event is emitted. 
 
