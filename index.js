@@ -23,10 +23,11 @@ function messageLines(msg) {
 }
 
 function toKeyPair(header) {
-  var result, tuple = header.split(': ');
-  if (tuple[1]) {
-    var result = {};
-    result[tuple[0].toLowerCase()] = tuple[1];
+  var result;
+  var splitCharIndex = header.indexOf(':');
+  if (splitCharIndex > 0) {
+    result = {};
+    result[header.slice(0,splitCharIndex).toLowerCase().trim()] = header.slice(splitCharIndex + 1).trim();
   }
   return result;
 }
