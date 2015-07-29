@@ -1,6 +1,9 @@
 {
   "dependencies": {
-    "underscore": ">= 1.6.0"
+    "ip": "^0.3.3",
+    "portfinder": "^0.4.0",
+    "underscore": ">= 1.6.0",
+    "xml2js": "^0.4.9"
   },
   "name": "node-upnp-ssdp",
   "description": "Simple Service Discovery for Node 0.12, handling Upnp NOTIFY and M-SEARCH requests.",
