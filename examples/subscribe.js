@@ -11,7 +11,11 @@ function first(element) {
     return _.isArray(element) ? element[0] : element;
 }
 
-function infoEvent(result, callback) {
+function parseProductEvent(result, callback) {
+	callback(result);
+}
+
+function parseInfoEvent(result, callback) {
     if (result['e:propertyset']['e:property']) {
       var dictionary = _.chain(result['e:propertyset']['e:property'])
         .reduce(_.extend, {})
@@ -37,9 +41,11 @@ function infoEvent(result, callback) {
 
 var host = '192.168.1.127';
 var port = 55178;
-var infoSub = '/Ds/Info/event';
-var productSub = '/Ds/Product/event';
+var infoSubUri = '/Ds/Info/event';
+var productSubUri = '/Ds/Product/event';
 
-var infoSub = new Subscription(host, port, infoSub, responseParsers.xml(infoEvent, function(err, data) { console.log(data); }));
+var infoSub = new Subscription(host, port, infoSubUri, responseParsers.xml(parseInfoEvent, function (err, data) { console.log(data); }));
+var productSub = new Subscription(host, port, productSubUri, responseParsers.xml(parseProductEvent, function (err, data) { console.log(data); }));
 
 setTimeout(infoSub.unsubscribe, 10000);
+setTimeout(productSub.unsubscribe, 10000);
