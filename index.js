@@ -2,6 +2,7 @@ var dgram   = require("dgram");
 var util    = require("util");
 var events  = require("events");
 var _       = require("underscore");
+var ip      = require("ip");
 
 const SSDP_PORT = 1900;
 const BROADCAST_ADDR = "239.255.255.250";
@@ -82,7 +83,7 @@ function Ssdp() {
 
   var udpServer = dgram.createSocket({ type: 'udp4', reuseAddr: true }, announceDevice(this));
   udpServer.bind(SSDP_PORT, function onConnected() {
-    udpServer.addMembership(BROADCAST_ADDR);
+    udpServer.addMembership(BROADCAST_ADDR, ip.address());
   });
 
   this.close = function() {
@@ -94,13 +95,13 @@ function Ssdp() {
       st = SSDP_ALL;
     }
 
-    var message = 
+    var message =
       "M-SEARCH * HTTP/1.1\r\n"+
       "Host:"+BROADCAST_ADDR+":"+SSDP_PORT+"\r\n"+
       "ST:"+st+"\r\n"+
       "Man:\"ssdp:discover\"\r\n"+
       "MX:2\r\n\r\n";
-    
+
     var mSearchListener = dgram.createSocket({ type: 'udp4', reuseAddr: true }, announceDiscoveredDevice(this));
     var mSearchRequester = dgram.createSocket({ type: 'udp4', reuseAddr: true });
 
