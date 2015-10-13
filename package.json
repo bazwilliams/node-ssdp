@@ -1,7 +1,5 @@
 {
   "dependencies": {
-    "ip": "^0.3.3",
-    "portfinder": "^0.4.0",
     "underscore": ">= 1.6.0",
     "xml2js": "^0.4.9"
   },
