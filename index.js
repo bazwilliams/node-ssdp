@@ -115,7 +115,8 @@ function Ssdp() {
       mSearchListener.bind(mSearchRequester.address().port);
     });
 
-    mSearchRequester.bind();
+    // Otherwise it'll bind on 0.0.0.0
+    mSearchRequester.bind(undefined, ip.address());
 
     // MX is set to 2, wait for 1 additional sec. before closing the server
     setTimeout(function(){
