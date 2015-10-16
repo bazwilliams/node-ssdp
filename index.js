@@ -86,8 +86,8 @@ function Ssdp() {
     udpServer.addMembership(BROADCAST_ADDR, ip.address());
   });
 
-  this.close = function() {
-    udpServer.close();
+  this.close = function(callback) {
+    udpServer.close(callback);
   }
 
   this.mSearch = function(st) {
